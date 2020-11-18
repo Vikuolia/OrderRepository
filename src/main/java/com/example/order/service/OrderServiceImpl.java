@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -30,8 +29,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getClientOrders(UUID client) {
-        return orderRepository.findAllByClient(client);
+    public List<Order> getClientOrders(String clientId) {
+        return orderRepository.findAllByClientId(clientId);
     }
 
     @Override
@@ -47,8 +46,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void deleteClientOrders(UUID client) {
-        orderRepository.deleteAllByClient(client);
+    public void deleteClientOrders(String clientId) {
+        orderRepository.deleteAllByClientId(clientId);
     }
 
 

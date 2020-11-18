@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/order")
@@ -43,7 +42,7 @@ public class OrderController {
     }
 
     @DeleteMapping("{client}")
-    public ResponseEntity<Void> deleteClientOrders(@PathVariable UUID client) {
+    public ResponseEntity<Void> deleteClientOrders(@PathVariable String client) {
         orderService.deleteClientOrders(client);
         return ResponseEntity.noContent().build();
     }

@@ -12,12 +12,12 @@ public interface OrderService {
 
     List<Order> getAll();
 
-    List<Order> getClientOrders(UUID client);
+    List<Order> getClientOrders(String clientId);
 
     Order getById(String id) throws NotFoundException;
 
     void deleteById(String id);
 
-    void deleteClientOrders(UUID client);
+    void deleteClientOrders(String clientId);
 
 }

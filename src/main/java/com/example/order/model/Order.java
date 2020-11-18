@@ -19,20 +19,20 @@ import java.util.UUID;
 public class Order {
 
     @Id
-    private String orderId;
+    private UUID orderId;
 
     private String date;
     private double price;
     private Status status;
 
-    private UUID clientId;
+    private String clientId;
 
-    private UUID sellerId;
+    private String sellerId;
 
-    private UUID hikeId;
+    private String hikeId;
 
 
-    public Order(UUID clientId, UUID sellerId, UUID hikeId){
+    public Order(String clientId, String sellerId, String hikeId){
         this.clientId = clientId;
         this.sellerId = sellerId;
         this.date = new Date().toString();
