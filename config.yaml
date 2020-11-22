@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-app
+  template:
+    metadata:
+      labels:
+        app: order-app
+    spec:
+      containers:
+        - image: order_service
+          name: order-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8087
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8087
+  selector:
+    app: order-app
