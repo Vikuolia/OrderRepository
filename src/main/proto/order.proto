@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package com.example.order;
+option java_multiple_files = true;
+
+enum Status{
+  inProgress = 0;
+  sold = 1;
+  Canceled = 2;
+}
+
+message OrderRequest{
+  string id = 1;
+  string  client = 2;
+  string seller = 3;
+  string hike = 4;
+}
+
+message OrderResponse{
+  string id = 1;
+  string client = 2;
+  string seller = 3;
+  string hike = 4;
+  string date = 5;
+  double price = 6;
+  Status status = 7;
+}
+
+message AllOrdersRequest{
+}
+
+message AllOrdersResponse{
+  repeated OrderResponse orders = 1;
+}
+
+message OrderByIdRequest{
+  string id = 1;
+}
+
+message DeleteOrderResponse{
+  string response = 1;
+}
+
+service OrderService{
+  rpc add(OrderRequest) returns (OrderResponse);
+  rpc all(AllOrdersRequest) returns (AllOrdersResponse);
+  rpc byId (OrderByIdRequest) returns (OrderResponse);
+  rpc delete (OrderByIdRequest) returns (DeleteOrderResponse);
+}

@@ -14,7 +14,7 @@ public interface OrderService {
 
     List<Order> getClientOrders(String clientId);
 
-    Order getById(String id) throws NotFoundException;
+    Order getById(String id);
 
     void deleteById(String id);
 

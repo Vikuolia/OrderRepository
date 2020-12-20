@@ -34,10 +34,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order getById(String id) throws NotFoundException {
-        Optional<Order> optionalOrder = orderRepository.findById(id);
-        if(optionalOrder.isPresent()) return orderRepository.findById(id).get();
-        else throw new NotFoundException(String.format("Order with id: %s does not exist", id));
+    public Order getById(String id){
+        return orderRepository.getOne(id);
     }
 
     @Override
