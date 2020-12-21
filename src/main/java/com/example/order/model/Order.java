@@ -32,8 +32,8 @@ public class Order {
     private String hikeId;
 
 
-    public Order(String id, String clientId, String sellerId, String hikeId){
-        this.orderId = id;
+    public Order(String clientId, String sellerId, String hikeId){
+        this.orderId = UUID.randomUUID().toString();
         this.clientId = clientId;
         this.sellerId = sellerId;
         this.date = new Date().toString();

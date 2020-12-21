@@ -10,10 +10,9 @@ enum Status{
 }
 
 message OrderRequest{
-  string id = 1;
-  string  client = 2;
-  string seller = 3;
-  string hike = 4;
+  string  client = 1;
+  string seller = 2;
+  string hike = 3;
 }
 
 message OrderResponse{

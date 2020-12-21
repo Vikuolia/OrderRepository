@@ -18,12 +18,11 @@ public class GrpcOrderController extends OrderServiceGrpc.OrderServiceImplBase {
 
     @Override
     public void add(OrderRequest request, StreamObserver<OrderResponse> responseObserver) {
-        String id = request.getId();
         String clientId = request.getClient();
         String sellerId = request.getSeller();
         String hikeId = request.getHike();
 
-        Order orderAdd = new Order(id, clientId, sellerId, hikeId);
+        Order orderAdd = new Order(clientId, sellerId, hikeId);
         Order orderResponse = orderService.addOrder(orderAdd);
 
         OrderResponse response = OrderResponse.newBuilder()
